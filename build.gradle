@@ -1,0 +1,16 @@
+group 'ua.kmd'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'javax.sip', name: 'android-jain-sip-ri', version: '1.2.228'
+    compile 'log4j:log4j:1.2.17'
+}

@@ -1,0 +1,6 @@
+
+.gitignore
+.gradle/
+.idea/
+build/
+shootmelog.txt
