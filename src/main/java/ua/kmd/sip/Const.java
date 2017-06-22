@@ -6,5 +6,5 @@ package ua.kmd.sip;
 public interface Const {
     String LOCALHOST = "127.0.0.1";
     int SIP_PORT = 5060;
-    String TRANSPORT = "udp";
+    String TRANSPORT_PROTOCOL = "udp";
 }

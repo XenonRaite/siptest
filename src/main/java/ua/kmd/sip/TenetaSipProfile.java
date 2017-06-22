@@ -9,23 +9,24 @@ import java.util.Properties;
 /**
  * Created by Sontik on 29.05.2017.
  */
-public class TenetaSipProfile {
+public class TenetaSipProfile implements Const{
 
-    private static SipStack sipStack;
+    private SipStack sipStack;
 
     private String callsign;
 
     public TenetaSipProfile(String callsign) {
         this.callsign = callsign;
+        init();
     }
 
     public TenetaSipProfile init(){
-        SipFactory sipFactory = null;
+        SipFactory sipFactory;
         sipStack = null;
         sipFactory = SipFactory.getInstance();
         sipFactory.setPathName("android.gov.nist");
         Properties properties = new Properties();
-        properties.setProperty("android.javax.sip.STACK_NAME", "shootme");
+        properties.setProperty("android.javax.sip.STACK_NAME", callsign);
         // You need 16 for logging traces. 32 for debug + traces.
         // Your code will limp at 32 but it is best for debugging.
         properties.setProperty("android.gov.nist.javax.sip.TRACE_LEVEL", "DEBUG");
@@ -46,7 +47,11 @@ public class TenetaSipProfile {
         return this;
     }
 
-    public void setListener(TenetaSipListener listener) {
-        sipStack.createListeningPoint();
+    public SipStack getSipStack() {
+        return sipStack;
+    }
+
+    public String getCallsign() {
+        return callsign;
     }
 }
